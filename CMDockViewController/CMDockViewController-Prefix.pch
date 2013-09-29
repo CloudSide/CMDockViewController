@@ -1,0 +1,43 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+// 获得颜色
+#define kGetColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define kGlobalBg kGetColor(46, 46, 46)
+
+// 获取Dock的高度
+#define kDockHeight(orientation) ((UIInterfaceOrientationIsLandscape(orientation)?[UIScreen mainScreen].bounds.size.width:[UIScreen mainScreen].bounds.size.height) - 20)
+
+/*
+ Compose里面item的宽高
+ */
+// 横屏的宽度
+#define kDockComposeItemWidthL 90
+// 横屏的高度
+#define kDockComposeItemHeightL kDockComposeItemWidthL
+
+// 竖屏的宽度
+#define kDockComposeItemWidthP 60
+// 竖屏的高度
+#define kDockComposeItemHeightP kDockComposeItemWidthP
+
+/*
+ Menu里面Item的宽高
+ */
+#define kDockMenuItemHeight kDockComposeItemHeightP
+
+
+#import "UIImage+Fit.h"
+#endif
