@@ -95,6 +95,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32D9FDDC17F93008007BF3C9 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		3F9C026F17F7F7A300457DB0 /* CMDockViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMDockViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9C027217F7F7A300457DB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F9C027417F7F7A300457DB0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -208,6 +209,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32D9FDDB17F92FEB007BF3C9 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				32D9FDDC17F93008007BF3C9 /* Config.h */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		3F9C026617F7F7A200457DB0 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +250,7 @@
 		3F9C027817F7F7A300457DB0 /* CMDockViewController */ = {
 			isa = PBXGroup;
 			children = (
+				32D9FDDB17F92FEB007BF3C9 /* Config */,
 				3F9C039817F8083D00457DB0 /* Category */,
 				3F9C039717F8083100457DB0 /* Object */,
 				3F9C039617F8082200457DB0 /* View */,
