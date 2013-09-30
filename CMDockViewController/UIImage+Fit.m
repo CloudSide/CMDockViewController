@@ -3,7 +3,7 @@
 //  SinaWeibo
 //
 //  Created by mj on 13-8-19.
-//  Copyright (c) 2013年 itcast. All rights reserved.
+//  Copyright (c) 2013年 Bruce ( Cloud Mario ). All rights reserved.
 //
 
 #import "UIImage+Fit.h"

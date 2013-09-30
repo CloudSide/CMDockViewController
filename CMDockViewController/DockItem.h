@@ -1,9 +1,9 @@
 //
 //  DockItem.h
-//  QQ空间-HD
+//  Cloud Mario Dock View Controller
 //
 //  Created by apple on 13-9-11.
-//  Copyright (c) 2013年 itcast. All rights reserved.
+//  Copyright (c) 2013年 Bruce ( Cloud Mario ). All rights reserved.
 //  封装Dock上一个条目的数据
 
 #import <Foundation/Foundation.h>

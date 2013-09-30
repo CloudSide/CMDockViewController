@@ -1,18 +1,18 @@
 //
-//  IconView.m
-//  QQ空间-HD
+//  AvatarView.m
+//  Cloud Mario Dock View Controller
 //
 //  Created by apple on 13-9-11.
-//  Copyright (c) 2013年 itcast. All rights reserved.
+//  Copyright (c) 2013年 Bruce ( Cloud Mario ). All rights reserved.
 //
 
-#import "IconView.h"
+#import "AvatarView.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define kIconMaxWidth 100
 #define kIconMaxHeight 100
 
-@implementation IconView
+@implementation AvatarView
 
 - (id)initWithFrame:(CGRect)frame
 {

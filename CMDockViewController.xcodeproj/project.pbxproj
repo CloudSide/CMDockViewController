@@ -72,10 +72,10 @@
 		3F9C039017F8019200457DB0 /* tabbar_separate_ugc_bg_v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C031E17F8019200457DB0 /* tabbar_separate_ugc_bg_v@2x.png */; };
 		3F9C039117F8019200457DB0 /* tabbar_separate_ugc_line_v.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C031F17F8019200457DB0 /* tabbar_separate_ugc_line_v.png */; };
 		3F9C039217F8019200457DB0 /* tabbar_separate_ugc_line_v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C032017F8019200457DB0 /* tabbar_separate_ugc_line_v@2x.png */; };
-		3F9C039517F807FF00457DB0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C039417F807FF00457DB0 /* HomeViewController.m */; };
+		3F9C039517F807FF00457DB0 /* CMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C039417F807FF00457DB0 /* CMHomeViewController.m */; };
 		3F9C039B17F8085000457DB0 /* UIImage+Fit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C039A17F8085000457DB0 /* UIImage+Fit.m */; };
 		3F9C03B017F8086000457DB0 /* Dock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03A317F8086000457DB0 /* Dock.m */; };
-		3F9C03B117F8086000457DB0 /* IconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03A517F8086000457DB0 /* IconView.m */; };
+		3F9C03B117F8086000457DB0 /* AvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03A517F8086000457DB0 /* AvatarView.m */; };
 		3F9C03B217F8086000457DB0 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03A717F8086000457DB0 /* MenuView.m */; };
 		3F9C03B317F8086000457DB0 /* ComposeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03A917F8086000457DB0 /* ComposeView.m */; };
 		3F9C03B417F8086000457DB0 /* MenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C03AB17F8086000457DB0 /* MenuItemView.m */; };
@@ -164,16 +164,16 @@
 		3F9C031E17F8019200457DB0 /* tabbar_separate_ugc_bg_v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_separate_ugc_bg_v@2x.png"; sourceTree = "<group>"; };
 		3F9C031F17F8019200457DB0 /* tabbar_separate_ugc_line_v.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_separate_ugc_line_v.png; sourceTree = "<group>"; };
 		3F9C032017F8019200457DB0 /* tabbar_separate_ugc_line_v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_separate_ugc_line_v@2x.png"; sourceTree = "<group>"; };
-		3F9C039317F807FF00457DB0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		3F9C039417F807FF00457DB0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		3F9C039317F807FF00457DB0 /* CMHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMHomeViewController.h; sourceTree = "<group>"; };
+		3F9C039417F807FF00457DB0 /* CMHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMHomeViewController.m; sourceTree = "<group>"; };
 		3F9C039917F8085000457DB0 /* UIImage+Fit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Fit.h"; sourceTree = "<group>"; };
 		3F9C039A17F8085000457DB0 /* UIImage+Fit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Fit.m"; sourceTree = "<group>"; };
 		3F9C039C17F8085800457DB0 /* DockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockItem.h; sourceTree = "<group>"; };
 		3F9C039D17F8085800457DB0 /* DockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockItem.m; sourceTree = "<group>"; };
 		3F9C03A217F8086000457DB0 /* Dock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dock.h; sourceTree = "<group>"; };
 		3F9C03A317F8086000457DB0 /* Dock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dock.m; sourceTree = "<group>"; };
-		3F9C03A417F8086000457DB0 /* IconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconView.h; sourceTree = "<group>"; };
-		3F9C03A517F8086000457DB0 /* IconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconView.m; sourceTree = "<group>"; };
+		3F9C03A417F8086000457DB0 /* AvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarView.h; sourceTree = "<group>"; };
+		3F9C03A517F8086000457DB0 /* AvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarView.m; sourceTree = "<group>"; };
 		3F9C03A617F8086000457DB0 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		3F9C03A717F8086000457DB0 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		3F9C03A817F8086000457DB0 /* ComposeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeView.h; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				3F9C039817F8083D00457DB0 /* Category */,
-				3F9C039717F8083100457DB0 /* Model */,
+				3F9C039717F8083100457DB0 /* Object */,
 				3F9C039617F8082200457DB0 /* View */,
 				3F9C02A117F7F7C500457DB0 /* Controller */,
 				3F9C028117F7F7A300457DB0 /* AppDelegate.h */,
@@ -285,8 +285,8 @@
 		3F9C02A117F7F7C500457DB0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3F9C039317F807FF00457DB0 /* HomeViewController.h */,
-				3F9C039417F807FF00457DB0 /* HomeViewController.m */,
+				3F9C039317F807FF00457DB0 /* CMHomeViewController.h */,
+				3F9C039417F807FF00457DB0 /* CMHomeViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -391,8 +391,8 @@
 			children = (
 				3F9C03A217F8086000457DB0 /* Dock.h */,
 				3F9C03A317F8086000457DB0 /* Dock.m */,
-				3F9C03A417F8086000457DB0 /* IconView.h */,
-				3F9C03A517F8086000457DB0 /* IconView.m */,
+				3F9C03A417F8086000457DB0 /* AvatarView.h */,
+				3F9C03A517F8086000457DB0 /* AvatarView.m */,
 				3F9C03A617F8086000457DB0 /* MenuView.h */,
 				3F9C03A717F8086000457DB0 /* MenuView.m */,
 				3F9C03A817F8086000457DB0 /* ComposeView.h */,
@@ -403,13 +403,13 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		3F9C039717F8083100457DB0 /* Model */ = {
+		3F9C039717F8083100457DB0 /* Object */ = {
 			isa = PBXGroup;
 			children = (
 				3F9C039C17F8085800457DB0 /* DockItem.h */,
 				3F9C039D17F8085800457DB0 /* DockItem.m */,
 			);
-			name = Model;
+			name = Object;
 			sourceTree = "<group>";
 		};
 		3F9C039817F8083D00457DB0 /* Category */ = {
@@ -573,12 +573,12 @@
 			files = (
 				3F9C03B417F8086000457DB0 /* MenuItemView.m in Sources */,
 				3F9C028317F7F7A300457DB0 /* AppDelegate.m in Sources */,
-				3F9C03B117F8086000457DB0 /* IconView.m in Sources */,
+				3F9C03B117F8086000457DB0 /* AvatarView.m in Sources */,
 				3F9C03BC17F82E6100457DB0 /* DockItem.m in Sources */,
 				3F9C03B217F8086000457DB0 /* MenuView.m in Sources */,
 				3F9C03B317F8086000457DB0 /* ComposeView.m in Sources */,
 				3F9C027F17F7F7A300457DB0 /* main.m in Sources */,
-				3F9C039517F807FF00457DB0 /* HomeViewController.m in Sources */,
+				3F9C039517F807FF00457DB0 /* CMHomeViewController.m in Sources */,
 				3F9C039B17F8085000457DB0 /* UIImage+Fit.m in Sources */,
 				3F9C03B017F8086000457DB0 /* Dock.m in Sources */,
 			);
@@ -783,6 +783,7 @@
 				3F9C029D17F7F7A300457DB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F9C029E17F7F7A300457DB0 /* Build configuration list for PBXNativeTarget "CMDockViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -791,6 +792,7 @@
 				3F9C02A017F7F7A300457DB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

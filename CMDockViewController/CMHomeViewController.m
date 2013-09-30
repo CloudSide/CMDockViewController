@@ -1,17 +1,17 @@
 //
 //  HomeViewController.m
-//  QQ空间-HD
+//  Cloud Mario Dock View Controller
 //
 //  Created by apple on 13-9-11.
-//  Copyright (c) 2013年 itcast. All rights reserved.
+//  Copyright (c) 2013年 Bruce ( Cloud Mario ). All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "CMHomeViewController.h"
 #import "Dock.h"
 #import "DockItem.h"
 
-@interface HomeViewController ()
-{
+@interface CMHomeViewController () {
+    
     Dock *_dock;
     
     // 存放所有要显示的子控制器
@@ -20,15 +20,17 @@
     // 当前正在显示的子控制器
     UINavigationController *_currentChild;
 }
+
 @end
 
-@implementation HomeViewController
-- (void)viewDidLoad
-{
+@implementation CMHomeViewController
+
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     _allChilds = [NSMutableDictionary dictionary];
-    __unsafe_unretained HomeViewController *home = self;
+    __unsafe_unretained CMHomeViewController *home = self;
     
     // 1.添加dock
     _dock = [[Dock alloc] init];
@@ -36,6 +38,7 @@
         // 根据切换控制器
         [home selectChildWithItem:item];
     };
+    
     [_dock rotateToOrientation:self.interfaceOrientation];
     [self.view addSubview:_dock];
     
@@ -58,14 +61,15 @@
 }
  
 
-- (void)logout
-{
+- (void)logout {
+    
+    //TODO: 退出登录通知
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark 即将旋转屏幕的时候自动调用
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    
     [UIView animateWithDuration:duration animations:^{
         // 根据即将要显示的方向来调整dock内部的布局
         [_dock rotateToOrientation:toInterfaceOrientation];
@@ -95,8 +99,8 @@
 }
 
 #pragma mark 切换控制器
-- (void)selectChildWithItem:(DockItem *)item
-{
+- (void)selectChildWithItem:(DockItem *)item {
+    
     // 1.从字典中取出即将要显示的子控制器
     UINavigationController *nav = _allChilds[item.className];
     if (nav == nil) {
@@ -153,8 +157,8 @@
 }
 
 #pragma mark 监听拖拽手势
-- (void)dragNavView:(UIPanGestureRecognizer *)pan
-{
+- (void)dragNavView:(UIPanGestureRecognizer *)pan {
+    
     if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateCancelled) {// 手势结束
         [UIView animateWithDuration:0.2 animations:^{
             pan.view.transform = CGAffineTransformIdentity;
@@ -165,9 +169,10 @@
     }
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+    
     // 移除通知的监听器
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"logout" object:nil];
 }
+
 @end

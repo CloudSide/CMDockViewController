@@ -1,20 +1,20 @@
 //
 //  Dock.m
-//  QQ空间-HD
+//  Cloud Mario Dock View Controller
 //
 //  Created by apple on 13-9-11.
-//  Copyright (c) 2013年 itcast. All rights reserved.
+//  Copyright (c) 2013年 Bruce ( Cloud Mario ). All rights reserved.
 //
 
 #import "Dock.h"
 #import "DockItem.h"
-#import "IconView.h"
+#import "AvatarView.h"
 #import "MenuView.h"
 #import "ComposeView.h"
 
 @interface Dock()
 {
-    IconView *_iconView;
+    AvatarView *_iconView;
     MenuView *_menuView;
     ComposeView *_composeView;
     UIImageView *_divider;
@@ -26,8 +26,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // 1.头像IconView
-        _iconView = [[IconView alloc] init];
+        // 1.头像AvatarView
+        _iconView = [[AvatarView alloc] init];
         [_iconView addTarget:self action:@selector(iconClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_iconView];
         
