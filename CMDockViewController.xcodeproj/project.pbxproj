@@ -82,6 +82,8 @@
 		3F9C03B917F812C900457DB0 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C03B817F812C900457DB0 /* back.png */; };
 		3F9C03BB17F8179B00457DB0 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C03BA17F8179B00457DB0 /* back@2x.png */; };
 		3F9C03BC17F82E6100457DB0 /* DockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C039D17F8085800457DB0 /* DockItem.m */; };
+		C1B595E51803B14800B68C60 /* FileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B595E41803B14800B68C60 /* FileDetailViewController.m */; };
+		C1B595E81803E41200B68C60 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B595E71803E41200B68C60 /* TestTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +185,10 @@
 		3F9C03AB17F8086000457DB0 /* MenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemView.m; sourceTree = "<group>"; };
 		3F9C03B817F812C900457DB0 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		3F9C03BA17F8179B00457DB0 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		C1B595E31803B14800B68C60 /* FileDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDetailViewController.h; sourceTree = "<group>"; };
+		C1B595E41803B14800B68C60 /* FileDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDetailViewController.m; sourceTree = "<group>"; };
+		C1B595E61803E41200B68C60 /* TestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
+		C1B595E71803E41200B68C60 /* TestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +303,10 @@
 			children = (
 				3F9C039317F807FF00457DB0 /* CMHomeViewController.h */,
 				3F9C039417F807FF00457DB0 /* CMHomeViewController.m */,
+				C1B595E31803B14800B68C60 /* FileDetailViewController.h */,
+				C1B595E41803B14800B68C60 /* FileDetailViewController.m */,
+				C1B595E61803E41200B68C60 /* TestTableViewController.h */,
+				C1B595E71803E41200B68C60 /* TestTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -584,10 +594,12 @@
 				3F9C03B417F8086000457DB0 /* MenuItemView.m in Sources */,
 				3F9C028317F7F7A300457DB0 /* AppDelegate.m in Sources */,
 				3F9C03B117F8086000457DB0 /* AvatarView.m in Sources */,
+				C1B595E81803E41200B68C60 /* TestTableViewController.m in Sources */,
 				3F9C03BC17F82E6100457DB0 /* DockItem.m in Sources */,
 				3F9C03B217F8086000457DB0 /* MenuView.m in Sources */,
 				3F9C03B317F8086000457DB0 /* ComposeView.m in Sources */,
 				3F9C027F17F7F7A300457DB0 /* main.m in Sources */,
+				C1B595E51803B14800B68C60 /* FileDetailViewController.m in Sources */,
 				3F9C039517F807FF00457DB0 /* CMHomeViewController.m in Sources */,
 				3F9C039B17F8085000457DB0 /* UIImage+Fit.m in Sources */,
 				3F9C03B017F8086000457DB0 /* Dock.m in Sources */,

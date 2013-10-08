@@ -44,7 +44,7 @@
 - (void)addDockItems
 {
     _dockItems = @[
-                   [DockItem itemWithIcon:@"tab_bar_feed_icon.png" title:@"全部动态" className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"tab_bar_feed_icon.png" title:@"全部动态" className:@"TestTableViewController"],
                    [DockItem itemWithIcon:@"tab_bar_passive_feed_icon.png" title:@"与我相关" className:@"UIViewController"],
                    [DockItem itemWithIcon:@"tab_bar_pic_wall_icon.png" title:@"照片墙" className:@"UIViewController"],
                    [DockItem itemWithIcon:@"tab_bar_friend_icon.png" title:@"好友" className:@"UIViewController"],
