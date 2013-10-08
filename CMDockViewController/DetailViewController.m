@@ -1,23 +1,18 @@
 //
-//  TestTableViewController.m
+//  DetailViewController.m
 //  CMDockViewController
 //
 //  Created by hanchao on 13-10-8.
 //  Copyright (c) 2013年 Bruce. All rights reserved.
 //
 
-#import "TestTableViewController.h"
-
-#import "AppDelegate.h"
-#import "CMHomeViewController.h"
-
 #import "DetailViewController.h"
 
-@interface TestTableViewController ()
+@interface DetailViewController ()
 
 @end
 
-@implementation TestTableViewController
+@implementation DetailViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -55,6 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 10;
 }
@@ -70,23 +66,9 @@
     
     
     // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
-    
+    cell.textLabel.text = [NSString stringWithFormat:@"=====%d",indexPath.row];
     
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"----------------%d",indexPath.row);
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    CMHomeViewController *mCMHomeViewController = (CMHomeViewController *)appDelegate.window.rootViewController;
-
-    DetailViewController *vc = [[DetailViewController alloc] init];
-//    vc.view.backgroundColor = [UIColor redColor];
-    
-    [mCMHomeViewController showDetailView:vc];
 }
 
 /*
