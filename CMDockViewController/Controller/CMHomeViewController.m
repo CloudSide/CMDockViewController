@@ -114,21 +114,16 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
             width = 768 - 22;
         }
         
-        _currentChild.view.frame = CGRectMake(_dock.frame.size.width, 0, width, _dock.frame.size.height - 10.0);
+        _currentChild.view.frame = CGRectMake(_dock.frame.size.width, 0 + 8, width, _dock.frame.size.height - 10.0);
 #ifdef __IPHONE_7_0
         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
             
-            _currentChild.view.frame = CGRectMake(_dock.frame.size.width, 22, width, _dock.frame.size.height - 10.0);
+            _currentChild.view.frame = CGRectMake(_dock.frame.size.width, 22 + 8, width, _dock.frame.size.height - 10.0);
         }
 #endif
         
-        
-        
-        
-        
-        
         width = 320;
-        CGFloat height = kScreenHeight(toInterfaceOrientation) - 20.0;
+        CGFloat height = kScreenHeight(toInterfaceOrientation)-12;
         
         CGFloat x = ((UIInterfaceOrientationIsLandscape(toInterfaceOrientation)?
                       self.view.frame.size.height:
@@ -240,11 +235,11 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
         width = 768 - 22;
     }
     
-    nav.view.frame = CGRectMake(_dock.frame.size.width, 0, width, _dock.frame.size.height - 10.0);
+    nav.view.frame = CGRectMake(_dock.frame.size.width, 0 + 8, width, _dock.frame.size.height - 10.0);
 #ifdef __IPHONE_7_0
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
         
-        nav.view.frame = CGRectMake(_dock.frame.size.width, 22.0, width, _dock.frame.size.height - 10.0);
+        nav.view.frame = CGRectMake(_dock.frame.size.width, 22.0 + 8, width, _dock.frame.size.height - 10.0);
     }
 #endif
     [self.view addSubview:nav.view];
@@ -258,6 +253,9 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     if (pan.view == self.slideDetailViewNav.view) {
         
         CGFloat tx = [pan translationInView:pan.view].x;
+        
+        if (tx < 0)
+            return;
         
         if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateCancelled) {// 手势结束
             
@@ -320,6 +318,28 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     // 不要自动伸缩
     self.slideDetailViewNav.view.autoresizingMask = UIViewAutoresizingNone;
     
+    self.slideDetailViewController.view.layer.cornerRadius = 6.0f;
+    
+    //使nav顶部圆角
+    CALayer *capa = self.slideDetailViewNav.navigationBar.layer;
+    
+    //Round
+    CGRect bounds = capa.bounds;
+    bounds.size.height += 10.0f;    //I'm reserving enough room for the shadow
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
+                                                   byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
+                                                         cornerRadii:CGSizeMake(10.0, 10.0)];
+    
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = bounds;
+    maskLayer.path = maskPath.CGPath;
+    [capa addSublayer:maskLayer];
+    capa.mask = maskLayer;
+
+    
+    
+    
+    
     // 添加手势监听器
     [self.slideDetailViewNav.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                            action:@selector(dragNavView:)]];
@@ -332,7 +352,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     [self addChildViewController:self.slideDetailViewNav];
     
     CGFloat width = 320;
-    CGFloat height = kScreenHeight([UIApplication sharedApplication].statusBarOrientation) - 20.0;
+    CGFloat height = kScreenHeight([UIApplication sharedApplication].statusBarOrientation)-12;
     
     CGFloat x = ((UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)?
                   self.view.frame.size.height:
