@@ -12,7 +12,7 @@
 
 @interface MenuView : UIView
 // 旋转到某一个方向
-- (void)rotateToOrientation:(UIInterfaceOrientation)orientation composeFrame:(CGRect)composeFrame;
+- (void)rotateToOrientation:(UIInterfaceOrientation)orientation iconFrame:(CGRect)composeFrame;
 
 @property (nonatomic, copy) void (^menuItemClickBlock)(DockItem *item);
 

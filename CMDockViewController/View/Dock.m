@@ -27,9 +27,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         // 1.头像AvatarView
-        _iconView = [[AvatarView alloc] init];
-        [_iconView addTarget:self action:@selector(iconClick) forControlEvents:UIControlEventTouchUpInside];
+//        _iconView = [[AvatarView alloc] init];
+//        [_iconView addTarget:self action:@selector(iconClick) forControlEvents:UIControlEventTouchUpInside];
+//        [self addSubview:_iconView];
+        
+        _iconView = [[[NSBundle mainBundle] loadNibNamed:@"AvaterView" owner:self options:nil] objectAtIndex:0];
+        _iconView.imageView.image = [UIImage imageNamed:@"default_person_lit"];
+        _iconView.userNameLabel.text = @"blow_wy_test@sina.com";
+        _iconView.usageAmountLabel.text = [NSString stringWithFormat:@"已用%.2fGB，共%.2fGB",123.45f,486.34f];
         [self addSubview:_iconView];
+        
         
         // 2.菜单MenuView
         _menuView = [[MenuView alloc] init];
@@ -77,8 +84,7 @@
     // 1.旋转compose
     [_composeView rotateToOrientation:orientation];
     
-    // 2.旋转menu
-    [_menuView rotateToOrientation:orientation composeFrame:_composeView.frame];
+
     
     // 3.设置dock的宽高
     CGFloat dockWidth = _composeView.frame.size.width;
@@ -96,5 +102,9 @@
     
     // 5.旋转icon
     [_iconView rotateToOrientation:orientation];
+    
+    // 2.旋转menu
+    [_menuView rotateToOrientation:orientation iconFrame:_iconView.frame];
+    //    [_menuView rotateToOrientation:orientation composeFrame:_composeView.frame];
 }
 @end

@@ -9,61 +9,67 @@
 #import "AvatarView.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define kIconMaxWidth 100
-#define kIconMaxHeight 100
+#define kIconMaxWidth 50
+#define kIconMaxHeight 50
+
 
 @implementation AvatarView
 
-- (id)initWithFrame:(CGRect)frame
+-(void)awakeFromNib
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.imageView.layer.cornerRadius = 5;
-        self.imageView.layer.masksToBounds = YES;
-        
-        [self setImage:[UIImage imageNamed:@"default_person_lit.png"] forState:UIControlStateNormal];
-        
-        [self setTitle:@"哈哈" forState:UIControlStateNormal];
-        
-        self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    }
-    return self;
+    self.imageView.layer.cornerRadius = 5;
+    self.imageView.layer.masksToBounds = YES;
 }
 
 - (void)rotateToOrientation:(UIInterfaceOrientation)orientation
 {
     // 1.设置整个头像的frame
     CGFloat width = self.superview.frame.size.width;
-    self.frame = CGRectMake(0, 0, width, width);
+    self.frame = CGRectMake(0, 0, width, 80);
     
     // 2.根据方向隐藏文字
-    NSString *title = UIInterfaceOrientationIsPortrait(orientation)?nil:@"哈哈";
-    [self setTitle:title forState:UIControlStateNormal];
-}
-
-- (CGRect)imageRectForContentRect:(CGRect)contentRect
-{
-    
-    CGFloat iconWidth = contentRect.size.width;
-    if (iconWidth > kIconMaxWidth) {
-        CGFloat imgX = (iconWidth - kIconMaxWidth) * 0.5;
-        CGFloat imgY = 40;
-        return CGRectMake(imgX, imgY, kIconMaxWidth, kIconMaxHeight);
-    } else {
-        CGFloat imgX = 10;
-        CGFloat imgY = 10;
-        CGFloat imgWidth = iconWidth - 2 * imgX;
-        return CGRectMake(imgX, imgY, imgWidth, imgWidth);
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        self.userNameLabel.hidden = YES;
+        self.usageAmountLabel.hidden = YES;
+        
+        CGRect frame = self.imageView.frame;
+        frame.origin.x = 5;
+        self.imageView.frame = frame;
+        
+    }else{
+        self.userNameLabel.hidden = NO;
+        self.usageAmountLabel.hidden = NO;
+        
+        CGRect frame = self.imageView.frame;
+        frame.origin.x = 8;
+        self.imageView.frame = frame;
     }
+    
 }
 
-- (CGRect)titleRectForContentRect:(CGRect)contentRect
-{
-    CGFloat titleX = 0;
-    CGFloat titleY = 150;
-    CGFloat titleWidth = contentRect.size.width;
-    CGFloat titleHeight = 50;
-    return CGRectMake(titleX, titleY, titleWidth, titleHeight);
-}
+//- (CGRect)imageRectForContentRect:(CGRect)contentRect
+//{
+//    
+//    CGFloat iconWidth = contentRect.size.width;
+//    if (iconWidth > kIconMaxWidth) {
+//        CGFloat imgX = (iconWidth - kIconMaxWidth) * 0.5;
+//        CGFloat imgY = 40;
+//        return CGRectMake(imgX, imgY, kIconMaxWidth, kIconMaxHeight);
+//    } else {
+//        CGFloat imgX = 10;
+//        CGFloat imgY = 10;
+//        CGFloat imgWidth = iconWidth - 2 * imgX;
+//        return CGRectMake(imgX, imgY, imgWidth, imgWidth);
+//    }
+//}
+//
+//- (CGRect)titleRectForContentRect:(CGRect)contentRect
+//{
+//    CGFloat titleX = 0;
+//    CGFloat titleY = 150;
+//    CGFloat titleWidth = contentRect.size.width;
+//    CGFloat titleHeight = 50;
+//    return CGRectMake(titleX, titleY, titleWidth, titleHeight);
+//}
 
 @end

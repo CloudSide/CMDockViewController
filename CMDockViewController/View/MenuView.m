@@ -81,12 +81,12 @@
     }
 }
 
-- (void)rotateToOrientation:(UIInterfaceOrientation)orientation composeFrame:(CGRect)composeFrame
+- (void)rotateToOrientation:(UIInterfaceOrientation)orientation iconFrame:(CGRect)iconFrame
 {
     // 设置MenuView的frame
-    CGFloat width = composeFrame.size.width;
+    CGFloat width = iconFrame.size.width;
     CGFloat height = _dockItems.count * kDockMenuItemHeight;
-    CGFloat y = composeFrame.origin.y - height;
+    CGFloat y = iconFrame.origin.y + iconFrame.size.height;//composeFrame.origin.y - height;
     self.frame = CGRectMake(0, y, width, height);
 }
 

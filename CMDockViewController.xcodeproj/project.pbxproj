@@ -84,6 +84,7 @@
 		3F9C039217F8019200457DB0 /* tabbar_separate_ugc_line_v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C032017F8019200457DB0 /* tabbar_separate_ugc_line_v@2x.png */; };
 		3F9C03B917F812C900457DB0 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C03B817F812C900457DB0 /* back.png */; };
 		3F9C03BB17F8179B00457DB0 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C03BA17F8179B00457DB0 /* back@2x.png */; };
+		C1B595F11805398300B68C60 /* AvaterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1B595F01805398300B68C60 /* AvaterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +190,7 @@
 		3F9C032017F8019200457DB0 /* tabbar_separate_ugc_line_v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_separate_ugc_line_v@2x.png"; sourceTree = "<group>"; };
 		3F9C03B817F812C900457DB0 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		3F9C03BA17F8179B00457DB0 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		C1B595F01805398300B68C60 /* AvaterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvaterView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 			children = (
 				3F658C4D18052AC000B93B2E /* AvatarView.h */,
 				3F658C4E18052AC000B93B2E /* AvatarView.m */,
+				C1B595F01805398300B68C60 /* AvaterView.xib */,
 				3F658C4F18052AC000B93B2E /* ComposeView.h */,
 				3F658C5018052AC000B93B2E /* ComposeView.m */,
 				3F658C5118052AC000B93B2E /* Dock.h */,
@@ -567,6 +570,7 @@
 				3F9C03BB17F8179B00457DB0 /* back@2x.png in Resources */,
 				3F9C034517F8019200457DB0 /* Default-Portrait@2x.png in Resources */,
 				3F9C037E17F8019200457DB0 /* tabbar_badge_new@2x.png in Resources */,
+				C1B595F11805398300B68C60 /* AvaterView.xib in Resources */,
 				3F9C036517F8019200457DB0 /* SegmentedControl_Left_Normal.png in Resources */,
 				3F9C037517F8019200457DB0 /* tab_bar_friend_icon.png in Resources */,
 				3F9C038617F8019200457DB0 /* tabbar_sendbox_badge@2x.png in Resources */,
