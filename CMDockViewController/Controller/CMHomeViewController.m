@@ -10,6 +10,8 @@
 #import "Dock.h"
 #import "DockItem.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @interface CMHomeViewController () {
     
     Dock *_dock;
@@ -170,6 +172,48 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
             [self presentViewController:nav animated:YES completion:nil];
             return;
         }
+        
+        vc.view.layer.cornerRadius = 4.0f;
+        
+        //阴影
+        nav.view.layer.shadowColor = [UIColor blackColor].CGColor;
+        nav.view.layer.shadowOpacity = 0.2;
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        CGPoint topLeft      = CGPointMake(-8.0, 4.0);
+        CGPoint bottomLeft   = CGPointMake(-8.0, CGRectGetHeight(nav.view.bounds));
+        CGPoint bottomRight  = CGPointMake(CGRectGetWidth(nav.view.bounds)-20, CGRectGetHeight(nav.view.bounds)+4);
+        CGPoint topRight     = CGPointMake(CGRectGetWidth(nav.view.bounds)-20, 0);
+        [path moveToPoint:topLeft];
+        [path addLineToPoint:bottomLeft];
+        [path addLineToPoint:bottomRight];
+        [path addLineToPoint:topRight];
+        [path addLineToPoint:topLeft];
+        [path closePath];
+        nav.view.layer.shadowPath = path.CGPath;
+        
+        //使nav顶部圆角
+        CALayer *capa = nav.navigationBar.layer;
+        [capa setShadowColor: [[UIColor blackColor] CGColor]];
+        [capa setShadowOpacity:0.85f];
+        [capa setShadowOffset: CGSizeMake(0.0f, 1.5f)];
+        [capa setShadowRadius:2.0f];
+        [capa setShouldRasterize:YES];
+        
+        //Round
+        CGRect bounds = capa.bounds;
+        bounds.size.height += 10.0f;    //I'm reserving enough room for the shadow
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
+                                                       byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
+                                                             cornerRadii:CGSizeMake(10.0, 10.0)];
+        
+        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = bounds;
+        maskLayer.path = maskPath.CGPath;
+        [capa addSublayer:maskLayer];
+        capa.mask = maskLayer;
+        
+        
+        
         
         // 添加手势监听器
         [nav.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragNavView:)]];
