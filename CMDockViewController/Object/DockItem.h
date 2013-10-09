@@ -14,8 +14,10 @@
 @property (nonatomic, copy) NSString *className; // 点击Item要打开的控制器
 @property (nonatomic, assign) BOOL modal; // 是否以模态窗口的形式展示
 
-+ (id)itemWithIcon:(NSString *)icon title:(NSString *)title className:(NSString *)className modal:(BOOL)modal;
-+ (id)itemWithIcon:(NSString *)icon title:(NSString *)title className:(NSString *)className;
+@property (nonatomic,copy) NSString *badge;//btn的badge
+
++ (id)itemWithIcon:(NSString *)icon title:(NSString *)title badge:(NSString *)badge className:(NSString *)className modal:(BOOL)modal;
++ (id)itemWithIcon:(NSString *)icon title:(NSString *)title badge:(NSString *)badge className:(NSString *)className;
 
 + (id)itemWithIcon:(NSString *)icon className:(NSString *)className modal:(BOOL)modal;
 + (id)itemWithIcon:(NSString *)icon className:(NSString *)className;

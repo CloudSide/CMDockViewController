@@ -9,11 +9,19 @@
 #import "MenuItemView.h"
 #import "DockItem.h"
 
+#import "MKNumberBadgeView.h"
+#import <objc/runtime.h>
+
+static char const * const badgeKey = "badge";
+
 @interface MenuItemView()
 {
     UIImageView *_divider;
 }
+
+-(MKNumberBadgeView *)badgeView;
 @end
+
 
 @implementation MenuItemView
 
@@ -57,6 +65,8 @@
     
     // 2.设置文字
     [self setTitle:dockItem.title forState:UIControlStateNormal];
+    
+    self.badge = dockItem.badge;
 }
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect
@@ -66,7 +76,39 @@
 
 - (CGRect)titleRectForContentRect:(CGRect)contentRect
 {
+    self.badge = self.badge;
+    
     CGFloat width = contentRect.size.width - kDockMenuItemHeight;
     return CGRectMake(kDockMenuItemHeight, 0, width, kDockMenuItemHeight);
+}
+
+-(void)setBadge:(NSString *)newBadge
+{
+    MKNumberBadgeView *badgeView = [self badgeView];
+    badgeView.value = newBadge;
+    badgeView.frame = CGRectMake((self.frame.size.width-badgeView.badgeSize.width) - 20,
+                                 0,
+                                 badgeView.badgeSize.width+10,
+                                 self.frame.size.height);
+    badgeView.hidden = (newBadge == nil);
+}
+
+-(NSString *)badge
+{
+    MKNumberBadgeView *badgeView = [self badgeView];
+    return badgeView.value;
+}
+
+-(MKNumberBadgeView *)badgeView;
+{
+    MKNumberBadgeView *badgeView = (MKNumberBadgeView *)objc_getAssociatedObject(self, badgeKey);
+    badgeView.userInteractionEnabled = NO;
+    if(!badgeView){
+        badgeView = [[MKNumberBadgeView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+        [self addSubview:badgeView];
+        badgeView.hidden = YES;
+        objc_setAssociatedObject(self, badgeKey, badgeView, OBJC_ASSOCIATION_RETAIN);
+    }
+    return badgeView;
 }
 @end

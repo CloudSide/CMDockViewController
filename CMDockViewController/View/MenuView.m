@@ -44,12 +44,12 @@
 - (void)addDockItems
 {
     _dockItems = @[
-                   [DockItem itemWithIcon:@"tab_bar_feed_icon.png" title:@"全部动态" className:@"TestTableViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_passive_feed_icon.png" title:@"与我相关" className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_pic_wall_icon.png" title:@"照片墙" className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_friend_icon.png" title:@"好友" className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_app_icon.png" title:@"应用" className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_pic_setting_icon.png" title:@"设置" className:@"UIViewController" modal:YES]
+                   [DockItem itemWithIcon:@"tab_bar_feed_icon.png" title:@"全部动态" badge:@"New" className:@"TestTableViewController"],
+                   [DockItem itemWithIcon:@"tab_bar_passive_feed_icon.png" title:@"与我相关" badge:@"asdd" className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"tab_bar_pic_wall_icon.png" title:@"照片墙" badge:nil className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"tab_bar_friend_icon.png" title:@"好友" badge:nil className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"tab_bar_app_icon.png" title:@"应用" badge:@"水电费的是否" className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"tab_bar_pic_setting_icon.png" title:@"设置" badge:@"111" className:@"UIViewController" modal:YES]
                    ];
 }
 

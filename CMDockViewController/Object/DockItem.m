@@ -9,29 +9,30 @@
 #import "DockItem.h"
 
 @implementation DockItem
-+ (id)itemWithIcon:(NSString *)icon title:(NSString *)title className:(NSString *)className modal:(BOOL)modal
++ (id)itemWithIcon:(NSString *)icon title:(NSString *)title badge:(NSString *)badge className:(NSString *)className modal:(BOOL)modal
 {
     DockItem *item = [[DockItem alloc] init];
     item.icon = icon;
     item.title = title;
     item.className = className;
     item.modal = modal;
+    item.badge = badge;
     return item;
 }
 
-+ (id)itemWithIcon:(NSString *)icon title:(NSString *)title className:(NSString *)className
++ (id)itemWithIcon:(NSString *)icon title:(NSString *)title badge:(NSString *)badge className:(NSString *)className
 {
-    return [self itemWithIcon:icon title:title className:className modal:NO];
+    return [self itemWithIcon:icon title:title badge:badge className:className modal:NO];
 }
 
 + (id)itemWithIcon:(NSString *)icon className:(NSString *)className modal:(BOOL)modal
 {
-    return [self itemWithIcon:icon title:nil className:className modal:modal];
+    return [self itemWithIcon:icon title:nil badge:nil className:className modal:modal];
 }
 
 + (id)itemWithIcon:(NSString *)icon className:(NSString *)className
 {
-    return [self itemWithIcon:icon title:nil className:className modal:NO];
+    return [self itemWithIcon:icon title:nil badge:nil className:className modal:NO];
 }
 
 @end

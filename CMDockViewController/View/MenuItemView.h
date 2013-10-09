@@ -10,4 +10,6 @@
 @class DockItem;
 @interface MenuItemView : UIButton
 @property (nonatomic, strong) DockItem *dockItem;
+
+@property (nonatomic) NSString *badge;
 @end

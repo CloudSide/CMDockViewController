@@ -85,6 +85,7 @@
 		3F9C03B917F812C900457DB0 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C03B817F812C900457DB0 /* back.png */; };
 		3F9C03BB17F8179B00457DB0 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C03BA17F8179B00457DB0 /* back@2x.png */; };
 		C1B595F11805398300B68C60 /* AvaterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1B595F01805398300B68C60 /* AvaterView.xib */; };
+		C1B595F718054BA700B68C60 /* MKNumberBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B595F618054BA700B68C60 /* MKNumberBadgeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,8 @@
 		3F9C03B817F812C900457DB0 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		3F9C03BA17F8179B00457DB0 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		C1B595F01805398300B68C60 /* AvaterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvaterView.xib; sourceTree = "<group>"; };
+		C1B595F518054BA700B68C60 /* MKNumberBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNumberBadgeView.h; sourceTree = "<group>"; };
+		C1B595F618054BA700B68C60 /* MKNumberBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNumberBadgeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +268,8 @@
 				3F658C5218052AC000B93B2E /* Dock.m */,
 				3F658C5318052AC000B93B2E /* MenuItemView.h */,
 				3F658C5418052AC000B93B2E /* MenuItemView.m */,
+				C1B595F518054BA700B68C60 /* MKNumberBadgeView.h */,
+				C1B595F618054BA700B68C60 /* MKNumberBadgeView.m */,
 				3F658C5518052AC000B93B2E /* MenuView.h */,
 				3F658C5618052AC000B93B2E /* MenuView.m */,
 			);
@@ -606,6 +611,7 @@
 				3F658C5718052AC000B93B2E /* UIImage+Fit.m in Sources */,
 				3F658C5B18052AC000B93B2E /* ComposeView.m in Sources */,
 				3F658C5C18052AC000B93B2E /* Dock.m in Sources */,
+				C1B595F718054BA700B68C60 /* MKNumberBadgeView.m in Sources */,
 				3F658C6518052AD100B93B2E /* TestTableViewController.m in Sources */,
 				3F658C5818052AC000B93B2E /* CMHomeViewController.m in Sources */,
 				3F9C028317F7F7A300457DB0 /* AppDelegate.m in Sources */,
