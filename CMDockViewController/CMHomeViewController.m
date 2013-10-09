@@ -22,9 +22,9 @@
     
 }
 
-@property (nonatomic,retain) UIViewController *detailViewController;//右侧浮层viewController
-@property (nonatomic,retain) UINavigationController *nav;
-@property (nonatomic,retain) CALayer *cover;
+@property (nonatomic,retain) UIViewController *slideDetailViewController;//右侧浮层viewController
+@property (nonatomic,retain) UINavigationController *slideDetailViewNav;
+@property (nonatomic,retain) UIView *slideCoverView;
 
 @end
 
@@ -91,9 +91,9 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
 #pragma mark 即将旋转屏幕的时候自动调用
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     
-    self.cover.frame = CGRectMake(0,0,
-                                  kScreenWidth(toInterfaceOrientation),
-                                  kScreenHeight(toInterfaceOrientation));
+    self.slideCoverView.frame = CGRectMake(0,0,
+                                          kScreenWidth(toInterfaceOrientation),
+                                          kScreenHeight(toInterfaceOrientation));
     
     [UIView animateWithDuration:duration animations:^{
         // 根据即将要显示的方向来调整dock内部的布局
@@ -132,14 +132,14 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
                       self.view.frame.size.height:
                       self.view.frame.size.width));
         
-        self.nav.view.frame = CGRectMake(x - width,
+        self.slideDetailViewNav.view.frame = CGRectMake(x - width,
                                          0,
                                          width,
                                          height);
 #ifdef __IPHONE_7_0
         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
             
-            self.nav.view.frame = CGRectMake(x - width,
+            self.slideDetailViewNav.view.frame = CGRectMake(x - width,
                                              22.0,
                                              width,
                                              height - 10.0);
@@ -211,7 +211,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
 #pragma mark 监听拖拽手势
 - (void)dragNavView:(UIPanGestureRecognizer *)pan {
     
-    if (pan.view == self.nav.view) {
+    if (pan.view == self.slideDetailViewNav.view) {
         
         CGFloat tx = [pan translationInView:pan.view].x;
         
@@ -254,38 +254,38 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
 
 -(void)showDetailView:(UIViewController *)vc
 {
-    if (self.detailViewController) {
-        [self.nav.view removeFromSuperview];
-        [self.cover removeFromSuperlayer];
+    if (self.slideDetailViewController) {
+        [self.slideDetailViewNav.view removeFromSuperview];
+        [self.slideCoverView removeFromSuperview];
         
-        self.nav = nil;
-        self.detailViewController = nil;
-        self.cover = nil;
+        self.slideDetailViewNav = nil;
+        self.slideDetailViewController = nil;
+        self.slideCoverView = nil;
     }
     
-    self.detailViewController = vc;
+    self.slideDetailViewController = vc;
     
-    self.cover = [CALayer layer];
-    self.cover.frame = CGRectMake(0,0,
+    self.slideCoverView = [[UIView alloc] init];
+    self.slideCoverView.frame = CGRectMake(0,0,
                                   kScreenWidth([UIApplication sharedApplication].statusBarOrientation),
                                   kScreenHeight([UIApplication sharedApplication].statusBarOrientation));
-    self.cover.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0].CGColor;
+    self.slideCoverView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     
-    self.nav = [[UINavigationController alloc] initWithRootViewController:self.detailViewController];
+    self.slideDetailViewNav = [[UINavigationController alloc] initWithRootViewController:self.slideDetailViewController];
     
     // 不要自动伸缩
-    self.nav.view.autoresizingMask = UIViewAutoresizingNone;
+    self.slideDetailViewNav.view.autoresizingMask = UIViewAutoresizingNone;
     
     // 添加手势监听器
-    [self.nav.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
+    [self.slideDetailViewNav.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                            action:@selector(dragNavView:)]];
     
     
-    [self.detailViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"关闭"
+    [self.slideDetailViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"关闭"
                                                                                 style:UIBarButtonItemStyleDone
                                                                                target:self action:@selector(closeAction)]];
     
-    [self addChildViewController:self.nav];
+    [self addChildViewController:self.slideDetailViewNav];
     
     CGFloat width = 320;
     CGFloat height = kScreenHeight([UIApplication sharedApplication].statusBarOrientation) - 20.0;
@@ -294,14 +294,14 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
                   self.view.frame.size.height:
                   self.view.frame.size.width));
     
-    self.nav.view.frame = CGRectMake(x,
+    self.slideDetailViewNav.view.frame = CGRectMake(x,
                                      0,
                                      width,
                                      height);
 #ifdef __IPHONE_7_0
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
         
-        self.nav.view.frame = CGRectMake(x,
+        self.slideDetailViewNav.view.frame = CGRectMake(x,
                                          22.0,
                                          width,
                                          height - 10.0);
@@ -309,9 +309,9 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
 #endif
     
     
-    [self.view.layer addSublayer:self.cover];
+    [self.view addSubview:self.slideCoverView];
     
-    [self.view addSubview:self.nav.view];
+    [self.view addSubview:self.slideDetailViewNav.view];
     
     
     [UIView animateWithDuration:0.2
@@ -319,15 +319,15 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
-                         CGRect frame = self.nav.view.frame;
+                         CGRect frame = self.slideDetailViewNav.view.frame;
                          frame.origin.x -= frame.size.width;
                          
-                         self.nav.view.frame = frame;
+                         self.slideDetailViewNav.view.frame = frame;
                          
-                         self.cover.backgroundColor = [UIColor colorWithRed:0
-                                                                      green:0
-                                                                       blue:0
-                                                                      alpha:0.5].CGColor;
+                         self.slideCoverView.backgroundColor = [UIColor colorWithRed:0
+                                                                              green:0
+                                                                               blue:0
+                                                                              alpha:0.5];
                          
                      } completion:nil];
     
@@ -347,23 +347,23 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
-                         CGRect frame = self.nav.view.frame;
+                         CGRect frame = self.slideDetailViewNav.view.frame;
                          frame.origin.x += frame.size.width;
                          
-                         self.nav.view.frame = frame;
+                         self.slideDetailViewNav.view.frame = frame;
                          
-                         self.cover.backgroundColor = [UIColor colorWithRed:0
-                                                                      green:0
-                                                                       blue:0
-                                                                      alpha:0].CGColor;
+                         self.slideCoverView.backgroundColor = [UIColor colorWithRed:0
+                                                                              green:0
+                                                                               blue:0
+                                                                              alpha:0];
                          
                      } completion:^(BOOL finished) {
-                         [self.nav.view removeFromSuperview];
-                         [self.cover removeFromSuperlayer];
+                         [self.slideDetailViewNav.view removeFromSuperview];
+                         [self.slideCoverView removeFromSuperview];
                          
-                         self.nav = nil;
-                         self.detailViewController = nil;
-                         self.cover = nil;
+                         self.slideDetailViewNav = nil;
+                         self.slideDetailViewController = nil;
+                         self.slideCoverView = nil;
                      }];
     
 }
