@@ -44,12 +44,11 @@
 - (void)addDockItems
 {
     _dockItems = @[
-                   [DockItem itemWithIcon:@"tab_bar_feed_icon.png" title:@"全部动态" badge:@"New" className:@"TestTableViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_passive_feed_icon.png" title:@"与我相关" badge:@"asdd" className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_pic_wall_icon.png" title:@"照片墙" badge:nil className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_friend_icon.png" title:@"好友" badge:nil className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_app_icon.png" title:@"应用" badge:@"水电费的是否" className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_pic_setting_icon.png" title:@"设置" badge:@"111" className:@"UIViewController" modal:YES]
+                   [DockItem itemWithIcon:@"tab_bar_feed_icon.png" title:@"我的微盘" badge:@"New" className:@"TestTableViewController"],
+                   [DockItem itemWithIcon:@"tab_bar_passive_feed_icon.png" title:@"已下载" badge:@"asdd" className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"tab_bar_pic_wall_icon.png" title:@"好友分享" badge:nil className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"tab_bar_friend_icon.png" title:@"找资源" badge:nil className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"tab_bar_app_icon.png" title:@"更多" badge:@"水电费的是否" className:@"UIViewController"],
                    ];
 }
 
@@ -88,6 +87,13 @@
     CGFloat height = _dockItems.count * kDockMenuItemHeight;
     CGFloat y = iconFrame.origin.y + iconFrame.size.height;//composeFrame.origin.y - height;
     self.frame = CGRectMake(0, y, width, height);
+    
+    for (UIView *view in self.subviews) {
+        if ([view isMemberOfClass:[MenuItemView class]]) {
+            MenuItemView *itemView = (MenuItemView *)view;
+            [itemView rotateToOrientation:orientation];
+        }
+    }
 }
 
 - (void)unselectAll

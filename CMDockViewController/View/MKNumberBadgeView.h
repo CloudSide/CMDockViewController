@@ -76,4 +76,6 @@
 // If YES, the badge will be hidden when the value is 0
 @property (nonatomic) BOOL hideWhenZero;
 
+@property (nonatomic) BOOL showDot;
+
 @end

@@ -12,4 +12,8 @@
 @property (nonatomic, strong) DockItem *dockItem;
 
 @property (nonatomic) NSString *badge;
+
+
+// 旋转到某一个方向
+- (void)rotateToOrientation:(UIInterfaceOrientation)orientation;
 @end

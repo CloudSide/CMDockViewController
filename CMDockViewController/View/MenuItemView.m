@@ -76,7 +76,7 @@ static char const * const badgeKey = "badge";
 
 - (CGRect)titleRectForContentRect:(CGRect)contentRect
 {
-    self.badge = self.badge;
+//    self.badge = self.badge;
     
     CGFloat width = contentRect.size.width - kDockMenuItemHeight;
     return CGRectMake(kDockMenuItemHeight, 0, width, kDockMenuItemHeight);
@@ -86,11 +86,26 @@ static char const * const badgeKey = "badge";
 {
     MKNumberBadgeView *badgeView = [self badgeView];
     badgeView.value = newBadge;
-    badgeView.frame = CGRectMake((self.frame.size.width-badgeView.badgeSize.width) - 20,
-                                 0,
-                                 badgeView.badgeSize.width+10,
-                                 self.frame.size.height);
+    
     badgeView.hidden = (newBadge == nil);
+    
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+    
+        badgeView.frame = CGRectMake(self.frame.size.width - 20,
+                                     10,
+                                     badgeView.badgeSize.width+10,
+                                     self.frame.size.height);
+        badgeView.showDot = YES;
+    
+    }else{
+        
+        badgeView.showDot = NO;
+        badgeView.frame = CGRectMake((self.frame.size.width-badgeView.badgeSize.width) - 20,
+                                     0,
+                                     badgeView.badgeSize.width+10,
+                                     self.frame.size.height);
+
+    }
 }
 
 -(NSString *)badge
@@ -111,4 +126,35 @@ static char const * const badgeKey = "badge";
     }
     return badgeView;
 }
+
+// 旋转到某一个方向
+- (void)rotateToOrientation:(UIInterfaceOrientation)orientation
+{
+    MKNumberBadgeView *badgeView = [self badgeView];
+    
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        
+        badgeView.frame = CGRectMake(self.frame.size.width - 20,
+                                     10,
+                                     badgeView.badgeSize.width+10,
+                                     self.frame.size.height);
+        badgeView.showDot = YES;
+        
+    }else{
+        
+        badgeView.showDot = NO;
+        badgeView.frame = CGRectMake((self.frame.size.width-badgeView.badgeSize.width) - 20,
+                                     0,
+                                     badgeView.badgeSize.width+10,
+                                     self.frame.size.height);
+        
+    }
+
+    [badgeView setNeedsDisplay];
+}
+
+
+
+
+
 @end
