@@ -79,12 +79,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"----------------%d",indexPath.row);
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    CMHomeViewController *mCMHomeViewController = (CMHomeViewController *)appDelegate.window.rootViewController;
+
+    CMHomeViewController *mCMHomeViewController = [CMHomeViewController sharedInstance];
 
     DetailViewController *vc = [[DetailViewController alloc] init];
-//    vc.view.backgroundColor = [UIColor redColor];
+    //vc.view.backgroundColor = [UIColor redColor];
     
     [mCMHomeViewController showDetailView:vc];
 }
