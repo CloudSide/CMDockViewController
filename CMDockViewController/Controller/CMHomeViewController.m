@@ -114,11 +114,11 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
             width = 768 - 22;
         }
         
-        _currentChild.view.frame = CGRectMake(_dock.frame.size.width, 0 + 8, width, _dock.frame.size.height - 10.0);
+        _currentChild.view.frame = CGRectMake(_dock.frame.size.width, 0 + 8, width, _dock.frame.size.height - 18.0);
 #ifdef __IPHONE_7_0
         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
             
-            _currentChild.view.frame = CGRectMake(_dock.frame.size.width, 22 + 8, width, _dock.frame.size.height - 10.0);
+            _currentChild.view.frame = CGRectMake(_dock.frame.size.width, 22 + 8, width, _dock.frame.size.height - 18.0);
         }
 #endif
         
@@ -235,11 +235,11 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
         width = 768 - 22;
     }
     
-    nav.view.frame = CGRectMake(_dock.frame.size.width, 0 + 8, width, _dock.frame.size.height - 10.0);
+    nav.view.frame = CGRectMake(_dock.frame.size.width, 0 + 8, width, _dock.frame.size.height - 18.0);
 #ifdef __IPHONE_7_0
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
         
-        nav.view.frame = CGRectMake(_dock.frame.size.width, 22.0 + 8, width, _dock.frame.size.height - 10.0);
+        nav.view.frame = CGRectMake(_dock.frame.size.width, 22.0 + 8, width, _dock.frame.size.height - 18.0);
     }
 #endif
     [self.view addSubview:nav.view];
