@@ -223,6 +223,17 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
+		3F658C261804F06300B93B2E /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				C1B595E61803E41200B68C60 /* TestTableViewController.h */,
+				C1B595E71803E41200B68C60 /* TestTableViewController.m */,
+				C1B595ED180418F000B68C60 /* DetailViewController.h */,
+				C1B595EE180418F000B68C60 /* DetailViewController.m */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
 		3F9C026617F7F7A200457DB0 = {
 			isa = PBXGroup;
 			children = (
@@ -303,10 +314,7 @@
 			children = (
 				3F9C039317F807FF00457DB0 /* CMHomeViewController.h */,
 				3F9C039417F807FF00457DB0 /* CMHomeViewController.m */,
-				C1B595E61803E41200B68C60 /* TestTableViewController.h */,
-				C1B595E71803E41200B68C60 /* TestTableViewController.m */,
-				C1B595ED180418F000B68C60 /* DetailViewController.h */,
-				C1B595EE180418F000B68C60 /* DetailViewController.m */,
+				3F658C261804F06300B93B2E /* Demo */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
