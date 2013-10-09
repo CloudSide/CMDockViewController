@@ -12,8 +12,10 @@
 
 @interface CMHomeViewController : UIViewController
 
--(void)showDetailView:(UIViewController *)vc;
++ (id)sharedInstance;
 
--(void)dismissDetailView;
+- (void)showDetailView:(UIViewController *)vc;
+- (void)dismissDetailView;
+
 
 @end

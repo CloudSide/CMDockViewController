@@ -30,6 +30,18 @@
 
 @implementation CMHomeViewController
 
+static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
+
++ (id)sharedInstance {
+    
+    if (kSharedInstanceCMHomeViewController == nil) {
+        
+        kSharedInstanceCMHomeViewController = [[CMHomeViewController alloc] init];
+    }
+    
+    return kSharedInstanceCMHomeViewController;
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
