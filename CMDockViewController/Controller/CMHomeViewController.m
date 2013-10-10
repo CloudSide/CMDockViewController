@@ -201,7 +201,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
             [path closePath];
             nav.view.layer.shadowPath = path.CGPath;
             
-            [nav.navigationBar setBackgroundImage:[[UIImage imageNamed: @"navbar_background"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0]
+            [nav.navigationBar setBackgroundImage:[[UIImage imageNamed:@"CMDockViewController.bundle/image/navbar_background"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0]
                                     forBarMetrics:UIBarMetricsDefault];
             
             
@@ -353,7 +353,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     
         self.slideDetailViewController.view.layer.cornerRadius = 3.0f;
         
-        [self.slideDetailViewNav.navigationBar setBackgroundImage:[[UIImage imageNamed: @"navbar_background"]
+        [self.slideDetailViewNav.navigationBar setBackgroundImage:[[UIImage imageNamed:@"CMDockViewController.bundle/image/navbar_background"]
                                                                    stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0]
                                 forBarMetrics:UIBarMetricsDefault];
         
