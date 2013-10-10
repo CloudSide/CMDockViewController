@@ -260,8 +260,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
         
         CGFloat tx = [pan translationInView:pan.view].x;
         
-        if (tx < 0)
-            return;
+        if (tx < 0) tx = 0;
         
         if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateCancelled) {// 手势结束
             
