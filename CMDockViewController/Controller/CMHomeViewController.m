@@ -126,8 +126,18 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
         CGFloat height = kScreenHeight(toInterfaceOrientation)-12;
         
         CGFloat x = ((UIInterfaceOrientationIsLandscape(toInterfaceOrientation)?
-                      self.view.frame.size.height:
-                      self.view.frame.size.width));
+                      self.view.frame.size.height+20:
+                      self.view.frame.size.width+20));
+        
+#ifdef __IPHONE_7_0
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+            x = ((UIInterfaceOrientationIsLandscape(toInterfaceOrientation)?
+                          self.view.frame.size.height:
+                          self.view.frame.size.width));
+        }
+#endif
+        
+        
         
         self.slideDetailViewNav.view.frame = CGRectMake(x - width,
                                          0,
@@ -168,6 +178,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
             return;
         }
         
+        
 #ifdef __IPHONE_7_0
         
         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
@@ -189,6 +200,10 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
             [path addLineToPoint:topLeft];
             [path closePath];
             nav.view.layer.shadowPath = path.CGPath;
+            
+            [nav.navigationBar setBackgroundImage:[[UIImage imageNamed: @"navbar_background"] stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0]
+                                    forBarMetrics:UIBarMetricsDefault];
+            
             
             //使nav顶部圆角
             CALayer *capa = nav.navigationBar.layer;
@@ -337,6 +352,10 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
     
         self.slideDetailViewController.view.layer.cornerRadius = 3.0f;
+        
+        [self.slideDetailViewNav.navigationBar setBackgroundImage:[[UIImage imageNamed: @"navbar_background"]
+                                                                   stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0]
+                                forBarMetrics:UIBarMetricsDefault];
         
         //使nav顶部圆角
         CALayer *capa = self.slideDetailViewNav.navigationBar.layer;

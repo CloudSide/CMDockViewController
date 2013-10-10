@@ -88,6 +88,8 @@
 		C1B595F718054BA700B68C60 /* MKNumberBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B595F618054BA700B68C60 /* MKNumberBadgeView.m */; };
 		C1B595FB180571A900B68C60 /* ipad_red_point.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B595F9180571A900B68C60 /* ipad_red_point.png */; };
 		C1B595FC180571A900B68C60 /* ipad_red_point@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B595FA180571A900B68C60 /* ipad_red_point@2x.png */; };
+		C1B596001806830700B68C60 /* navbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B595FE1806830700B68C60 /* navbar_background.png */; };
+		C1B596011806830700B68C60 /* navbar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B595FF1806830700B68C60 /* navbar_background@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +200,8 @@
 		C1B595F618054BA700B68C60 /* MKNumberBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNumberBadgeView.m; sourceTree = "<group>"; };
 		C1B595F9180571A900B68C60 /* ipad_red_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_red_point.png; sourceTree = "<group>"; };
 		C1B595FA180571A900B68C60 /* ipad_red_point@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad_red_point@2x.png"; sourceTree = "<group>"; };
+		C1B595FE1806830700B68C60 /* navbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_background.png; sourceTree = "<group>"; };
+		C1B595FF1806830700B68C60 /* navbar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_background@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +373,8 @@
 		3F9C02A517F8019200457DB0 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				C1B595FE1806830700B68C60 /* navbar_background.png */,
+				C1B595FF1806830700B68C60 /* navbar_background@2x.png */,
 				C1B595F9180571A900B68C60 /* ipad_red_point.png */,
 				C1B595FA180571A900B68C60 /* ipad_red_point@2x.png */,
 				3F9C028417F7F7A300457DB0 /* Images.xcassets */,
@@ -556,6 +562,7 @@
 				3F9C036F17F8019200457DB0 /* SegmentedControl_Selected.png in Resources */,
 				3F9C038417F8019200457DB0 /* tabbar_photo@2x.png in Resources */,
 				3F9C038517F8019200457DB0 /* tabbar_sendbox_badge.png in Resources */,
+				C1B596011806830700B68C60 /* navbar_background@2x.png in Resources */,
 				3F9C034217F8019200457DB0 /* Default-Landscape.png in Resources */,
 				3F9C027D17F7F7A300457DB0 /* InfoPlist.strings in Resources */,
 				3F9C036A17F8019200457DB0 /* SegmentedControl_Normal@2x.png in Resources */,
@@ -572,6 +579,7 @@
 				3F9C038317F8019200457DB0 /* tabbar_photo.png in Resources */,
 				3F9C038A17F8019200457DB0 /* tabbar_separate_line@2x.png in Resources */,
 				3F9C038E17F8019200457DB0 /* tabbar_separate_ugc_bg@2x.png in Resources */,
+				C1B596001806830700B68C60 /* navbar_background.png in Resources */,
 				3F9C034317F8019200457DB0 /* Default-Landscape@2x.png in Resources */,
 				3F9C036717F8019200457DB0 /* SegmentedControl_Left_Selected.png in Resources */,
 				3F9C036B17F8019200457DB0 /* SegmentedControl_Right_Normal.png in Resources */,
