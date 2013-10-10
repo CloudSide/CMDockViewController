@@ -105,7 +105,7 @@
 {
     if (self.showDot) {
         
-        UIImage *img = [UIImage imageNamed:@"ipad_red_point"];
+        UIImage *img = [UIImage imageNamed:@"CMDockViewController.bundle/image/ipad_red_point"];
         [img drawAtPoint:CGPointMake(0, 0)];
         
     }else{

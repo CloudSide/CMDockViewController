@@ -63,7 +63,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     
     // 2.设置背景
     //self.view.backgroundColor = kGlobalBg;
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"back"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"CMDockViewController.bundle/image/bg/back"]];
     
     // 3.监听通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logout) name:@"logout" object:nil];

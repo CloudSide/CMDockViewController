@@ -59,7 +59,7 @@
         
         // 4.分隔线
         _divider = [[UIImageView alloc] init];
-        _divider.image = [UIImage resizeImage:@"tabbar_separate_ugc_line_v.png"];
+        _divider.image = [UIImage resizeImage:@"CMDockViewController.bundle/image/tabbar/tabbar_separate_ugc_line_v.png"];
         [self addSubview:_divider];
     }
     return self;

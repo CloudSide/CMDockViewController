@@ -32,7 +32,7 @@
         
         // 3.添加顶部的分隔线
         UIImageView *divider = [[UIImageView alloc] init];
-        divider.image = [UIImage resizeImage:@"tabbar_separate_line.png"];
+        divider.image = [UIImage resizeImage:@"CMDockViewController.bundle/image/tabbar/tabbar_separate_line.png"];
         divider.frame = CGRectMake(0, 0, frame.size.width, 2);
         divider.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:divider];
@@ -44,11 +44,11 @@
 - (void)addDockItems
 {
     _dockItems = @[
-                   [DockItem itemWithIcon:@"tab_bar_feed_icon.png" title:@"我的微盘" badge:@"New" className:@"TestTableViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_passive_feed_icon.png" title:@"已下载" badge:@"asdd" className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_pic_wall_icon.png" title:@"好友分享" badge:nil className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_friend_icon.png" title:@"找资源" badge:nil className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"tab_bar_app_icon.png" title:@"更多" badge:@"水电费的是否" className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_feed_icon.png" title:@"我的微盘" badge:@"New" className:@"TestTableViewController"],
+                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_passive_feed_icon.png" title:@"已下载" badge:@"asdd" className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_pic_wall_icon.png" title:@"好友分享" badge:nil className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_friend_icon.png" title:@"找资源" badge:nil className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_app_icon.png" title:@"更多" badge:@"水电费的是否" className:@"UIViewController"],
                    ];
 }
 

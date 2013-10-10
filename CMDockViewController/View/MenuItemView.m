@@ -35,13 +35,13 @@ static char const * const badgeKey = "badge";
         
         // 2.添加分隔线
         _divider = [[UIImageView alloc] init];
-        _divider.image = [UIImage resizeImage:@"tabbar_separate_line.png"];
+        _divider.image = [UIImage resizeImage:@"CMDockViewController.bundle/image/tabbar/tabbar_separate_line.png"];
         _divider.frame = CGRectMake(0, kDockMenuItemHeight, 0, 2);
         _divider.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:_divider];
         
         // 3.设置被选中的背景
-        [self setBackgroundImage:[UIImage resizeImage:@"tabbar_separate_selected_bg.png"] forState:UIControlStateSelected];
+        [self setBackgroundImage:[UIImage resizeImage:@"CMDockViewController.bundle/image/tabbar/tabbar_separate_selected_bg.png"] forState:UIControlStateSelected];
     }
     return self;
 }
