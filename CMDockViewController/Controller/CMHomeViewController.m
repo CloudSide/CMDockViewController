@@ -168,54 +168,58 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
             return;
         }
         
-        vc.view.layer.cornerRadius = 3.0f;
+#ifdef __IPHONE_7_0
         
-        //阴影
-        nav.view.layer.shadowColor = [UIColor blackColor].CGColor;
-        nav.view.layer.shadowOpacity = 0.2;
-        UIBezierPath *path = [UIBezierPath bezierPath];
-        CGPoint topLeft      = CGPointMake(-8.0, 4.0);
-        CGPoint bottomLeft   = CGPointMake(-8.0, CGRectGetHeight(nav.view.bounds));
-        CGPoint bottomRight  = CGPointMake(CGRectGetWidth(nav.view.bounds)-20, CGRectGetHeight(nav.view.bounds)+4);
-        CGPoint topRight     = CGPointMake(CGRectGetWidth(nav.view.bounds)-20, 0);
-        [path moveToPoint:topLeft];
-        [path addLineToPoint:bottomLeft];
-        [path addLineToPoint:bottomRight];
-        [path addLineToPoint:topRight];
-        [path addLineToPoint:topLeft];
-        [path closePath];
-        nav.view.layer.shadowPath = path.CGPath;
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
         
-        //使nav顶部圆角
-        CALayer *capa = nav.navigationBar.layer;
-//        capa.backgroundColor = [UIColor redColor].CGColor;
-        
-//        [capa setShadowColor: [[UIColor blackColor] CGColor]];
-//        [capa setShadowOpacity:0.85f];
-//        [capa setShadowOffset: CGSizeMake(0.0f, 1.5f)];
-//        [capa setShadowRadius:2.0f];
-//        [capa setShouldRasterize:YES];
-        
-        //Round
-        CGRect bounds = capa.bounds;
-        bounds.size.height += 10.0f;    //I'm reserving enough room for the shadow
-        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
-                                                       byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
-                                                             cornerRadii:CGSizeMake(3.0, 3.0)];
-        
-        CAShapeLayer *maskLayer = [CAShapeLayer layer];
-        maskLayer.backgroundColor = [UIColor redColor].CGColor;
-        maskLayer.frame = bounds;
-        maskLayer.path = maskPath.CGPath;
-        [capa addSublayer:maskLayer];
-        capa.mask = maskLayer;
-        
-        
-        
-        
-        
-        
-        
+            vc.view.layer.cornerRadius = 3.0f;
+            
+            //阴影
+            nav.view.layer.shadowColor = [UIColor blackColor].CGColor;
+            nav.view.layer.shadowOpacity = 0.2;
+            UIBezierPath *path = [UIBezierPath bezierPath];
+            CGPoint topLeft      = CGPointMake(-8.0, 4.0);
+            CGPoint bottomLeft   = CGPointMake(-8.0, CGRectGetHeight(nav.view.bounds));
+            CGPoint bottomRight  = CGPointMake(CGRectGetWidth(nav.view.bounds)-20, CGRectGetHeight(nav.view.bounds)+4);
+            CGPoint topRight     = CGPointMake(CGRectGetWidth(nav.view.bounds)-20, 0);
+            [path moveToPoint:topLeft];
+            [path addLineToPoint:bottomLeft];
+            [path addLineToPoint:bottomRight];
+            [path addLineToPoint:topRight];
+            [path addLineToPoint:topLeft];
+            [path closePath];
+            nav.view.layer.shadowPath = path.CGPath;
+            
+            //使nav顶部圆角
+            CALayer *capa = nav.navigationBar.layer;
+            //capa.backgroundColor = [UIColor redColor].CGColor;
+            //[capa setShadowColor: [[UIColor blackColor] CGColor]];
+            //[capa setShadowOpacity:0.85f];
+            //[capa setShadowOffset: CGSizeMake(0.0f, 1.5f)];
+            //[capa setShadowRadius:2.0f];
+            //[capa setShouldRasterize:YES];
+            
+            //Round
+            CGRect bounds = capa.bounds;
+            bounds.size.height += 10.0f;    //I'm reserving enough room for the shadow
+            UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
+                                                           byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
+                                                                 cornerRadii:CGSizeMake(3.0, 3.0)];
+            
+            CAShapeLayer *maskLayer = [CAShapeLayer layer];
+            maskLayer.backgroundColor = [UIColor redColor].CGColor;
+            maskLayer.frame = bounds;
+            maskLayer.path = maskPath.CGPath;
+            [capa addSublayer:maskLayer];
+            capa.mask = maskLayer;
+            
+        } else
+#endif
+        {
+            
+            //TODO:iOS6 用图片背景实现
+        }
+
         // 添加手势监听器
         [nav.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragNavView:)]];
         
@@ -326,28 +330,37 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     // 不要自动伸缩
     self.slideDetailViewNav.view.autoresizingMask = UIViewAutoresizingNone;
     
-    self.slideDetailViewController.view.layer.cornerRadius = 3.0f;
     
-    //使nav顶部圆角
-    CALayer *capa = self.slideDetailViewNav.navigationBar.layer;
     
-    //Round
-    CGRect bounds = capa.bounds;
-    bounds.size.height += 10.0f;    //I'm reserving enough room for the shadow
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
-                                                   byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
-                                                         cornerRadii:CGSizeMake(3.0, 3.0)];
+#ifdef __IPHONE_7_0
     
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = bounds;
-    maskLayer.path = maskPath.CGPath;
-    [capa addSublayer:maskLayer];
-    capa.mask = maskLayer;
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+    
+        self.slideDetailViewController.view.layer.cornerRadius = 3.0f;
+        
+        //使nav顶部圆角
+        CALayer *capa = self.slideDetailViewNav.navigationBar.layer;
+        
+        //Round
+        CGRect bounds = capa.bounds;
+        bounds.size.height += 10.0f;    //I'm reserving enough room for the shadow
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
+                                                       byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
+                                                             cornerRadii:CGSizeMake(3.0, 3.0)];
+        
+        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = bounds;
+        maskLayer.path = maskPath.CGPath;
+        [capa addSublayer:maskLayer];
+        capa.mask = maskLayer;
+        
+    } else
+#endif
+    {
+    
+        //TODO:iOS6 用图片背景实现
+    }
 
-    
-    
-    
-    
     // 添加手势监听器
     [self.slideDetailViewNav.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                            action:@selector(dragNavView:)]];
