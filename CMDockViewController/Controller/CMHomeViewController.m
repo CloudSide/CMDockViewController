@@ -201,7 +201,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
         bounds.size.height += 10.0f;    //I'm reserving enough room for the shadow
         UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
                                                        byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
-                                                             cornerRadii:CGSizeMake(10.0, 10.0)];
+                                                             cornerRadii:CGSizeMake(3.0, 3.0)];
         
         CAShapeLayer *maskLayer = [CAShapeLayer layer];
         maskLayer.backgroundColor = [UIColor redColor].CGColor;
@@ -326,7 +326,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     // 不要自动伸缩
     self.slideDetailViewNav.view.autoresizingMask = UIViewAutoresizingNone;
     
-    self.slideDetailViewController.view.layer.cornerRadius = 2.0f;
+    self.slideDetailViewController.view.layer.cornerRadius = 3.0f;
     
     //使nav顶部圆角
     CALayer *capa = self.slideDetailViewNav.navigationBar.layer;
@@ -336,7 +336,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     bounds.size.height += 10.0f;    //I'm reserving enough room for the shadow
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
                                                    byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
-                                                         cornerRadii:CGSizeMake(10.0, 10.0)];
+                                                         cornerRadii:CGSizeMake(3.0, 3.0)];
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.frame = bounds;
