@@ -82,7 +82,7 @@
 
     CMHomeViewController *mCMHomeViewController = [CMHomeViewController sharedInstance];
 
-    DetailViewController *vc = [[DetailViewController alloc] init];
+    __autoreleasing DetailViewController *vc = [[DetailViewController alloc] init];
     //vc.view.backgroundColor = [UIColor redColor];
     
     [mCMHomeViewController showDetailView:vc];
