@@ -168,7 +168,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
             return;
         }
         
-        vc.view.layer.cornerRadius = 4.0f;
+        vc.view.layer.cornerRadius = 3.0f;
         
         //阴影
         nav.view.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -326,7 +326,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     // 不要自动伸缩
     self.slideDetailViewNav.view.autoresizingMask = UIViewAutoresizingNone;
     
-    self.slideDetailViewController.view.layer.cornerRadius = 6.0f;
+    self.slideDetailViewController.view.layer.cornerRadius = 2.0f;
     
     //使nav顶部圆角
     CALayer *capa = self.slideDetailViewNav.navigationBar.layer;
