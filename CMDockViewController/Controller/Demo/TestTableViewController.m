@@ -78,7 +78,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"----------------%d",indexPath.row);
+//    NSLog(@"----------------%d",indexPath.row);
 
     CMHomeViewController *mCMHomeViewController = [CMHomeViewController sharedInstance];
 

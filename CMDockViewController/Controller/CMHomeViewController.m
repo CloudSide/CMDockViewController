@@ -24,9 +24,9 @@
     
 }
 
-@property (nonatomic,retain) UIViewController *slideDetailViewController;//右侧浮层viewController
-@property (nonatomic,retain) UINavigationController *slideDetailViewNav;
-@property (nonatomic,retain) UIView *slideCoverView;
+@property (nonatomic,strong) UIViewController *slideDetailViewController;//右侧浮层viewController
+@property (nonatomic,strong) UINavigationController *slideDetailViewNav;
+@property (nonatomic,strong) UIView *slideCoverView;
 
 @end
 
@@ -188,11 +188,13 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
         
         //使nav顶部圆角
         CALayer *capa = nav.navigationBar.layer;
-        [capa setShadowColor: [[UIColor blackColor] CGColor]];
-        [capa setShadowOpacity:0.85f];
-        [capa setShadowOffset: CGSizeMake(0.0f, 1.5f)];
-        [capa setShadowRadius:2.0f];
-        [capa setShouldRasterize:YES];
+//        capa.backgroundColor = [UIColor redColor].CGColor;
+        
+//        [capa setShadowColor: [[UIColor blackColor] CGColor]];
+//        [capa setShadowOpacity:0.85f];
+//        [capa setShadowOffset: CGSizeMake(0.0f, 1.5f)];
+//        [capa setShadowRadius:2.0f];
+//        [capa setShouldRasterize:YES];
         
         //Round
         CGRect bounds = capa.bounds;
@@ -202,10 +204,14 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
                                                              cornerRadii:CGSizeMake(10.0, 10.0)];
         
         CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        maskLayer.backgroundColor = [UIColor redColor].CGColor;
         maskLayer.frame = bounds;
         maskLayer.path = maskPath.CGPath;
         [capa addSublayer:maskLayer];
         capa.mask = maskLayer;
+        
+        
+        
         
         
         
@@ -299,6 +305,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
 -(void)showDetailView:(UIViewController *)vc
 {
     if (self.slideDetailViewController) {
+        [self.slideDetailViewController removeFromParentViewController];
         [self.slideDetailViewNav.view removeFromSuperview];
         [self.slideCoverView removeFromSuperview];
         
@@ -424,7 +431,9 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
                                                                               alpha:0];
                          
                      } completion:^(BOOL finished) {
+                         [self.slideDetailViewController removeFromParentViewController];
                          [self.slideDetailViewNav.view removeFromSuperview];
+                         [self.slideDetailViewNav removeFromParentViewController];
                          [self.slideCoverView removeFromSuperview];
                          
                          self.slideDetailViewNav = nil;
