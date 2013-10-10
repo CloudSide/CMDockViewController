@@ -87,10 +87,10 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
 }
 
 #define kScreenHeight(orientation) ((UIInterfaceOrientationIsLandscape(orientation)?[UIScreen mainScreen].bounds.size.width:[UIScreen mainScreen].bounds.size.height))
-
 #define kScreenWidth(orientation) ((UIInterfaceOrientationIsLandscape(orientation)?[UIScreen mainScreen].bounds.size.height:[UIScreen mainScreen].bounds.size.width))
 
 #pragma mark 即将旋转屏幕的时候自动调用
+
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     
     self.slideCoverView.frame = CGRectMake(0,0,
@@ -290,9 +290,11 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
 }
 
 #pragma mark - fileDetailView
-#define kScreenHeight(orientation) ((UIInterfaceOrientationIsLandscape(orientation)?[UIScreen mainScreen].bounds.size.width:[UIScreen mainScreen].bounds.size.height))
 
+/*
+#define kScreenHeight(orientation) ((UIInterfaceOrientationIsLandscape(orientation)?[UIScreen mainScreen].bounds.size.width:[UIScreen mainScreen].bounds.size.height))
 #define kScreenWidth(orientation) ((UIInterfaceOrientationIsLandscape(orientation)?[UIScreen mainScreen].bounds.size.height:[UIScreen mainScreen].bounds.size.width))
+ */
 
 -(void)showDetailView:(UIViewController *)vc
 {
