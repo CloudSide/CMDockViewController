@@ -57,7 +57,7 @@
                    [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_feed_icon.png"
                                     title:@"我的微盘"
                                     badge:nil
-                                className:@"VDiskViewControllerIPad"],
+                                className:@"TestTableViewController"],
                    
                    [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_passive_feed_icon.png"
                                     title:@"已下载"
