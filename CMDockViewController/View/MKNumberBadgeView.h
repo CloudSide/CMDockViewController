@@ -34,11 +34,11 @@
 
 @interface MKNumberBadgeView : UIView 
 {
-	__unsafe_unretained NSString *_value;
+	NSString *_value;
 }
 
 // The current value displayed in the badge. Updating the value will update the view's display
-@property (assign,nonatomic) NSString *value;
+@property (strong,nonatomic) NSString *value;
 
 // Indicates whether the badge view draws a dhadow or not.
 @property (assign,nonatomic) BOOL shadow;

@@ -14,8 +14,6 @@
 
 @interface Dock()
 {
-    AvatarView *_iconView;
-    MenuView *_menuView;
     ComposeView *_composeView;
     UIImageView *_divider;
 }

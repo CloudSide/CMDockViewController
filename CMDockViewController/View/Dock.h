@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class DockItem;
+@class AvatarView;
+@class MenuView;
 
 @interface Dock : UIView
+
+@property (nonatomic,strong) AvatarView *iconView;
+@property (nonatomic,strong) MenuView *menuView;
 
 // 旋转到某一个方向
 - (void)rotateToOrientation:(UIInterfaceOrientation)orientation;

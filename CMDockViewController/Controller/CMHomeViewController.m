@@ -10,17 +10,15 @@
 #import "Dock.h"
 #import "DockItem.h"
 
+#import "MenuView.h"
+#import "MenuItemView.h"
+
 #import <QuartzCore/QuartzCore.h>
 
 @interface CMHomeViewController () {
     
-    Dock *_dock;
-    
     // 存放所有要显示的子控制器
     NSMutableDictionary *_allChilds;
-    
-    // 当前正在显示的子控制器
-    UINavigationController *_currentChild;
     
 }
 
@@ -70,6 +68,7 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
     
     // 4.默认选中全部状态
     [home selectChildWithItem:[DockItem itemWithIcon:nil className:@"UIViewController"]];
+ 
     
 }
 
@@ -160,6 +159,18 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
 #pragma mark 切换控制器
 - (void)selectChildWithItem:(DockItem *)item {
     
+    /*
+     * 去掉 New
+     */
+    item.badge = nil;
+    NSUInteger index = [self.dock.menuView.dockItems indexOfObject:item];
+    
+    if (index != NSNotFound) {
+        MenuItemView *miv = [self.dock.menuView.menuItemViews objectAtIndex:index];
+        miv.badge = nil;
+    }
+    
+    
     // 1.从字典中取出即将要显示的子控制器
     UINavigationController *nav = _allChilds[item.className];
     if (nav == nil) {
@@ -191,12 +202,12 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
             UIBezierPath *path = [UIBezierPath bezierPath];
             CGPoint topLeft      = CGPointMake(-8.0, 4.0);
             CGPoint bottomLeft   = CGPointMake(-8.0, CGRectGetHeight(nav.view.bounds));
-            CGPoint bottomRight  = CGPointMake(CGRectGetWidth(nav.view.bounds)-20, CGRectGetHeight(nav.view.bounds)+4);
-            CGPoint topRight     = CGPointMake(CGRectGetWidth(nav.view.bounds)-20, 0);
+            //CGPoint bottomRight  = CGPointMake(CGRectGetWidth(nav.view.bounds)-20, CGRectGetHeight(nav.view.bounds)+4);
+            //CGPoint topRight     = CGPointMake(CGRectGetWidth(nav.view.bounds)-20, 0);
             [path moveToPoint:topLeft];
             [path addLineToPoint:bottomLeft];
-            [path addLineToPoint:bottomRight];
-            [path addLineToPoint:topRight];
+            //[path addLineToPoint:bottomRight];
+            //[path addLineToPoint:topRight];
             [path addLineToPoint:topLeft];
             [path closePath];
             nav.view.layer.shadowPath = path.CGPath;
@@ -472,6 +483,19 @@ static CMHomeViewController *kSharedInstanceCMHomeViewController = nil;
                          self.slideCoverView = nil;
                      }];
     
+}
+
+
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    
+    return YES;
+}
+
+- (BOOL)shouldAutorotate {
+    
+    return YES;
 }
 
 

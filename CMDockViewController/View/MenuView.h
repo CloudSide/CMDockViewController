@@ -16,6 +16,10 @@
 
 @property (nonatomic, copy) void (^menuItemClickBlock)(DockItem *item);
 
+@property (nonatomic,strong) NSArray *dockItems;
+
+@property (nonatomic,strong) NSMutableArray *menuItemViews;
+
 // 取消选中全部
 - (void)unselectAll;
 @end

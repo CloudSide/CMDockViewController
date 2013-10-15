@@ -11,7 +11,7 @@
 @interface MenuItemView : UIButton
 @property (nonatomic, strong) DockItem *dockItem;
 
-@property (nonatomic) NSString *badge;
+@property (nonatomic,assign) NSString *badge;
 
 
 // 旋转到某一个方向

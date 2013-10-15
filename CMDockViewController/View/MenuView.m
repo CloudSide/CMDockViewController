@@ -12,7 +12,6 @@
 
 @interface MenuView()
 {
-    NSArray *_dockItems;
     
     MenuItemView *_currentItemView;
 }
@@ -24,6 +23,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        self.menuItemViews = [NSMutableArray array];
+        
         // 1.先添加DockItem
         [self addDockItems];
         
@@ -40,15 +42,43 @@
     return self;
 }
 
+-(void)setDockItems:(NSArray *)dockItems
+{
+    _dockItems = dockItems;
+    
+    [self addMenuItemViews];
+}
+
+
 #pragma mark 先添加DockItem
 - (void)addDockItems
 {
     _dockItems = @[
-                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_feed_icon.png" title:@"我的微盘" badge:@"New" className:@"TestTableViewController"],
-                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_passive_feed_icon.png" title:@"已下载" badge:@"asdd" className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_pic_wall_icon.png" title:@"好友分享" badge:nil className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_friend_icon.png" title:@"找资源" badge:nil className:@"UIViewController"],
-                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_app_icon.png" title:@"更多" badge:@"水电费的是否" className:@"UIViewController"],
+                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_feed_icon.png"
+                                    title:@"我的微盘"
+                                    badge:nil
+                                className:@"VDiskViewControllerIPad"],
+                   
+                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_passive_feed_icon.png"
+                                    title:@"已下载"
+                                    badge:nil
+                                className:@"FavoritesListViewController"],
+                   
+                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_pic_wall_icon.png"
+                                    title:@"好友分享"
+                                    badge:nil
+                                 className:@"ReceiveViewController"],
+                   
+                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_friend_icon.png"
+                                    title:@"找资源"
+                                    badge:nil
+                                className:@"ShareListViewController"],
+                   
+                   [DockItem itemWithIcon:@"CMDockViewController.bundle/image/tabbar/tab_bar_app_icon.png"
+                                    title:@"更多"
+                                    badge:nil
+                                className:@"MoreViewController"
+                                    modal:YES],
                    ];
 }
 
@@ -63,6 +93,8 @@
         btn.dockItem = _dockItems[i];
         [btn addTarget:self action:@selector(menuItemClick:) forControlEvents:UIControlEventTouchDown];
         [self addSubview:btn];
+        
+        [self.menuItemViews addObject:btn];
     }
 }
 

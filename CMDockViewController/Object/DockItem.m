@@ -35,4 +35,9 @@
     return [self itemWithIcon:icon title:nil badge:nil className:className modal:NO];
 }
 
+- (BOOL)isEqual:(id)object {
+    return ([object isKindOfClass:[DockItem class]]
+            && [[object className] isEqualToString:self.className]);
+}
+
 @end
